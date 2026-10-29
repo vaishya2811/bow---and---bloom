@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bow & Bloom | My To-Do List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <main>
+        <header>
+            <p>♡ a little space for your big dreams ♡</p>
+            <h1>Bow & Bloom 🎀</h1>
+            <p>One little step at a time.</p>
+        </header>
+
+        <section>
+            <h2>My little to-do list</h2>
+            <form action="/add-task" method="POST">
+    <input
+        type="text"
+        name="task"
+        placeholder="What would you like to do?"
+        aria-label="New task"
+        required
+    >
+
+    <button type="submit">Add task +</button>
+</form>
+
+            <div>
+    {% if tasks %}
+        <ul class="task-list">
+            {% for task in tasks %}
+                <li>
+                    <span>{{ task["title"] }}</span>
+
+                    {% if not task["completed"] %}
+                        <form action="{{ url_for('complete_task_route', task_id=task['id']) }}" method="POST">
+                            <button type="submit">♡ Complete</button>
+                        </form>
+                    {% else %}
+                        <span>✓ Completed</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Your tasks will bloom here 🌷</p>
+    {% endif %}
+</div>
+        </section>
+
+        <footer>
+            Made with ♡ and a little pink magic
+        </footer>
+    </main>
+</body>
+</html>

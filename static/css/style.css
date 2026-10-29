@@ -1,0 +1,167 @@
+/* ---------- Colour palette ---------- */
+:root {
+    --pink: #e8a6b7;
+    --deep-pink: #b85c78;
+    --light-pink: #fff0f4;
+    --cream: #fffaf5;
+    --text: #674653;
+    --white: #ffffff;
+    --border: #f0d5dd;
+}
+
+/* ---------- Reset and page background ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 10% 15%, #fce1e9 0, transparent 25%),
+        radial-gradient(circle at 90% 85%, #f7dce6 0, transparent 28%),
+        var(--cream);
+}
+
+/* ---------- Main layout ---------- */
+main {
+    width: min(90%, 620px);
+    margin: 0 auto;
+    padding: 60px 0 30px;
+}
+
+/* ---------- Header ---------- */
+header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+header p:first-child {
+    color: var(--deep-pink);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin: 12px 0;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: normal;
+    color: var(--deep-pink);
+}
+
+header p:last-child {
+    font-size: 1.05rem;
+    font-style: italic;
+}
+
+/* ---------- To-do card ---------- */
+section {
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow: 0 15px 40px rgba(184, 92, 120, 0.10);
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+}
+
+/* ---------- Task input ---------- */
+form {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    outline: none;
+    background: var(--cream);
+    color: var(--text);
+    font: inherit;
+}
+
+input:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px rgba(232, 166, 183, 0.18);
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 14px;
+    background: var(--deep-pink);
+    color: var(--white);
+    font: inherit;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #98435f;
+    transform: translateY(-2px);
+}
+
+/* ---------- Empty task area ---------- */
+section > div {
+    margin-top: 25px;
+    padding: 24px 12px;
+    text-align: center;
+    border: 1px dashed var(--border);
+    border-radius: 18px;
+    background: var(--light-pink);
+}
+
+/* ---------- Footer ---------- */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #a77b8a;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 480px) {
+    main {
+        padding-top: 35px;
+    }
+
+    section {
+        padding: 22px 16px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.task-list li {
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--text);
+    box-shadow: 0 3px 10px rgba(184, 92, 120, 0.06);
+}
